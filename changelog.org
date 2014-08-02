@@ -1,0 +1,7 @@
+* CHANGES : 
+  = <2014-05-14 Wed> =
+  - default table added in configuration
+  - uils_m contains small tools to work with config columns.column_attr returns requested attribute
+  = <2014-05-16 Fri> =
+  - added id to filters
+  - 

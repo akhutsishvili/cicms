@@ -1,0 +1,57 @@
+* intro
+=
+მოცემული კონფიგურაცია ახდენს გავლენას შეტანა/გამოტანის ველებზე.როგორც ცხრილის ნახვაში,ასევე ჩანაწერების დამატება/რედაქტირებაში.
+ცხრილის და რედაქტირების ფორმის კონფიგურაციის შედგენა ხდება ცხრილში არსებული ქოლონების(გასაღებების საშუალებით).კონფიგურაცია ინახება application/config/cms/input.php.
+შემდეგი ფორმით :
+$config['input']['table_name'] = array ( 'column_name' => array ('type' => 'text' , 'label' => this is column')) და ასე შემდეგ.
+შესვლის ველების გენერაცია ხდება application/models/core_m.php function 
+=
+* label
+არის column-ის დასახელება
+* visible
+true პარამეტრის შემთხვევაში მოცემული column იქნება გამოჩენილი ცხრილის ნახვის გვერძე.რედაქტირების ფორმაზე გავლენას არ ახდენს.
+ასევე გავლენას ახდენს ფილტრაციის ველებზე რომლებიც ჩანს ცვხრილის ნახვის გვერძე.
+* note
+არის ტექსტური ინფორმაცია რომელიც input ველის გვერძე.
+** note | url
+თუ ესენი ერთად არიან მაშინ დაგენერირდება <a href="url/idvalue">note</a>
+
+* field types,parameters and filed parameters
+ქვემოთ მოყვანილებში იგულისხმება :
+თუ პუნქტის სახელი იქნება type => text მაშინ ის უნდა შაიწეროს მასივში 'type' => 'text' სახით.
+ჩანაწერის რედაქტირების ფორმაში cms/form ში ხდება შეტანის ველის შემდეგი ფორმით გენერირება label - input სადაც type არის input-ის ტიპი
+** type => text
+აგენერირებს <input type="text"/>
+** type => hidden
+აგენერირებს <input type="hidden"/>
+** type => textarea
+აგენერირებს <textarea class="ckeditor"></textarea> WYSIWYG ედიტორით
+** type => date
+აგენერირებს <input type="hidden"/>
+** type => hidden
+აგენერირებს <input type="hidden"/>
+** type => date
+აგენერირებს <input type="date" id="datepicker"/> იყენებს jqueryUI -ს კალენდარს
+** type => dropdown
+აგენერირებს <select></select>
+*** list => array('one' => 1 , 'two' => '2')
+არის select-ს შიგნით რაც მოექცევა დროპდაუნის მნიშვნელობები
+*** relation => 'table_name'
+თუ მოცემული კოლონა არის ღომელიმე რომელიმე გარე ცხრილის foreign key.მაშინ ამ ცხრილიდან იქნება წამოღებული array(idvalue => title_geovalue)
+** type => csv | relation => 'table_name'
+აგენერირებს <input type="text"/> და შიგნით არის მოცემული გარე ცხრილის id-ები cvs ფორმატით.ამ ველში ჩანაწერების წაშლა/დამატება შესაძლებელია მარტივი ინტფეისით.
+გარე ცხრილიდან სახელად მოდის title_geo კოლონა
+** type => json | relation => 'table_name'
+აგენერირებს <textarea class="json-form"></textarea> რომელზეც მოქმედება ხდება <select></select> <input type="text"/> ველების საშუალებით.
+ეს ველები დამატებადია + ღილაკზე დაჭერის საშუალებით.წაშლა კი შესაძლებელია <select>-ში ცარიელი ველის მონიშვნით.<select>ში ველები მოდის id - title_geo წყობით
+** type => file
+აგენერირებს <input type="file"/> რომლის სახელიც იწერება ბაზაში შემდგომი მოხმარებისთვის key-ში
+** type => bool
+აგენერებირებს რადიობუტონს yes no ინპუტებით
+
+
+* cms controller
+
+* cms models
+
+* cms views
