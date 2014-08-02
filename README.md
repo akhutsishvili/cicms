@@ -1,4 +1,4 @@
-this is is currently open sorcing.documentation and guide will be added soon.
+this is is currently open sourcing.documentation and guide will be added soon.
 =======
 
 main TODO-s are
