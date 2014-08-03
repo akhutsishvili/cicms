@@ -14,7 +14,14 @@ $config['config']['tables'] = array (
 
 );
 
-
+/*
+ * tables that you don`t want to see in sidebar
+ * example :
+ * 'hidden', 'another_hidden_table'
+ */
+$config['config']['ignore_tables'] = array(
+    'hidden'
+);
 
 // documentation in config.org
 
@@ -22,11 +29,12 @@ $config['config']['test_table'] = array (
     'id' => array (
         'type' => 'hidden', 
         'label' => 'id', 
-        'visible' => true
+        'visible' => true,
     ),
     'title' => array(
         'type' => 'text',
         'label' => 'test input',
-	'visible' => true
+        'visible' => true,
+        'note' => 'ass'
     )
 );

@@ -1,1 +1,10 @@
 * CHANGES : 
+** <2014-08-03 კვი>
+*** removed
+- obsolite and poorly executed inputs
+
+*** added
+- configurirable ignore tables.
+  
+*** fixed
+- generating note to column from config (previous version was complete garbage)
